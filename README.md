@@ -1,3 +1,22 @@
+# QUIZ на NextJS + PostgreSQL 'Что будет выведено в консоль?'
+
+main - главная ветка
+develop - ветка разработки
+feature/... - ветки разработки фичей
+hotfix/... - ветки исправления багов
+release/m.m.p - ветки релизов
+
+## Start of the project
+
+- yarn create next-app quiz-nextjs-postgresql
+- cd quiz-nextjs-postgresql
+- code .
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
