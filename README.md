@@ -12,6 +12,18 @@ release/m.m.p - ветки релизов
 - cd quiz-nextjs-postgresql
 - code .
 
+## Created branch
+
+- git branch develop
+- git checkout develop
+- git branch feature/index-page
+- git checkout feature/index-page
+
+## Created
+
+- pages [index, ]
+- layouts [Layout, ]
+- components [Header, Card, Button, Modal]
 
 
 
