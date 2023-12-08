@@ -25,7 +25,15 @@ release/m.m.p - ветки релизов
 - layouts [Layout, ]
 - components [Header, Card, Button, Modal]
 
+## Merge branch
 
+- git checkout develop
+- git merge feature/index-page
+
+## Created branch
+
+- git branch feature/api
+- git checkout feature/api
 
 
 
