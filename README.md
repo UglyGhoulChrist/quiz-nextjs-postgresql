@@ -35,6 +35,14 @@ release/m.m.p - ветки релизов
 - git branch feature/api
 - git checkout feature/api
 
+## Created
+
+- pages [api/questions, ]
+
+## Changed
+
+- index.js [questionsList -> getStaticProps, ]
+
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

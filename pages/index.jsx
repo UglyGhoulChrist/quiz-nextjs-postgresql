@@ -1,51 +1,17 @@
 import Card from '@/components/Card'
 import styles from '@/pages/index.module.css'
 
-const questionsList = [
-    {
-        "id": 0,
-        "question": [
-            "(() => {",
-            "    let x, y;",
-            "    try {",
-            "        throw new Error();",
-            "    } catch (x) {",
-            "        (x = 13), (y = 42);",
-            "        console.log(x);",
-            "    }",
-            "    console.log(x);",
-            "    console.log(y);",
-            "})();"
-        ],
-        "listAnswers": [
-            "13 undefined 42",
-            "undefined undefined undefined",
-            "13 13 42",
-            "13 undefined undefined"
-        ],
-        "rightAnswer": "0",
-        "explanation": "Функцию немедленного вызова, наверное, все узнали :). В ней определен блок try, который пытается выполнить код, в нем находящийся. При условии возникновения ошибки в этом блоке будет вызван блок catch. Ошибка в блоке try генерируется вручную посредством искусственного ее выбрасывания через throw. После этого код попадает в блок catch, который получает аргумент x. Однако, это не тот же x, который определен в области видимости функции, а тот, котоый имеет блочную область видимости. Этому аргументу присваивается значение 13, и это значение будет действовать в блоке catch, где будет первый раз выведена в консоль. Для переменной y в этом же блоке устанавливается значение 42, но эта переменная уже определена в области видимости функции, а не блока. После чего блок catch заканчивается и оказывается, что переменная х в области видимости функции не определена (она умерла в блоке catch) - ее значение undefined, а переменная y - инициализирована в блоке catch и получила значение 42. Ну а скобки вокруг присваиваний - для отвлечения внимания :)."
-    },
-    {
-        "id": 1,
-        "question": [
-            "const numbers = [13, 47, 42, 0, 11];",
-            "const [number] = numbers;",
-            "&nbsp;",
-            "console.log(number);"
-        ],
-        "listAnswers": [
-            "[13, 47, 42, 0, 11]",
-            "[[13, 47, 42, 0, 11]]",
-            "13",
-            "[13]"
-        ],
-        "rightAnswer": "2",
-        "explanation": "Синтаксис деструктуризации массивов позволяет распаковать значения из массивов или объектов. Например, после выполнения [a, b] = [1, 2] значение переменной а будет равно 1, а значение b - 2. Таким образом, в примере значение переменной number будет равно первому значению в массиве numbers, а именно 13."
+const getStaticProps = async () => {
+    try {
+        const response = await fetch(process.env.API_HOST + '/questions/')
+        const data = await response.json()
+        return { props: { questionsList: data } }
+    } catch (error) {
+        return { notFound: true }
     }
-]
+}
 
-function Index() {
+function Index({ questionsList }) {
     return (
         <>
             <h1 className={styles.header}>Что будет выведено в консоль?</h1>
@@ -59,3 +25,4 @@ function Index() {
 }
 
 export default Index
+export { getStaticProps }
