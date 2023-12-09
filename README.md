@@ -43,6 +43,13 @@ release/m.m.p - ветки релизов
 
 - index.js [questionsList -> getStaticProps, ]
 
+## Merge branch
+
+- git checkout develop
+- git merge feature/api
+- git checkout main
+- git merge develop
+
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
