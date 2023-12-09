@@ -50,6 +50,17 @@ release/m.m.p - ветки релизов
 - git checkout main
 - git merge develop
 
+## Created branch
+
+- git branch hotfix
+- git checkout hotfix
+
+## Corrections
+
+- index.module.css
+- Card.module.css
+- Header.module.css
+- reset.css
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
