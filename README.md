@@ -50,6 +50,21 @@ release/m.m.p - ветки релизов
 - git checkout main
 - git merge develop
 
+## Created branch
+
+- git branch hotfix
+- git checkout hotfix
+
+## Merge branch
+
+- git checkout develop
+- git merge hotfix
+- git checkout main
+- git merge develop
+
+## Delete branch
+
+- git branch -D hotfix
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
