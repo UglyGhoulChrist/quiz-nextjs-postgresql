@@ -1,20 +1,20 @@
 # QUIZ на NextJS + PostgreSQL 'Что будет выведено в консоль?'
 
-[Code on GitHub](https://github.com/UglyGhoulChrist/quiz-nextjs-postgresql.git)
-[Project on Vercel](https://quiz-nextjs-postgresql.vercel.app/)
-[API on Vercel](https://quiz-nextjs-postgresql.vercel.app/api/questions/)
+[Code on GitHub](https://github.com/UglyGhoulChrist/quiz-nextjs-postgresql.git)    
+[Project on Vercel](https://quiz-nextjs-postgresql.vercel.app/)    
+[API on Vercel](https://quiz-nextjs-postgresql.vercel.app/api/questions/)    
 
-main - главная ветка
-develop - ветка разработки
-feature/... - ветки разработки фичей
-hotfix/... - ветки исправления багов
-release/m.m.p - ветки релизов
+main - главная ветка    
+develop - ветка разработки    
+feature/... - ветки разработки фичей    
+hotfix/... - ветки исправления багов    
+release/m.m.p - ветки релизов    
 
 ## Started
 
-yarn                  - installing dependencies
-yarn dev              - run the development server
-http://localhost:3000 - open with your browser to see the result.
+yarn                  - installing dependencies    
+yarn dev              - run the development server    
+http://localhost:3000 - open with your browser to see the result    
 
 ## Start of the project
 
