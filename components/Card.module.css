@@ -1,4 +1,5 @@
 .card {
+    overflow-x: hidden;
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: 0.25rem;
     padding: 0.5rem;
@@ -23,9 +24,24 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.3rem;
+    font-family: monospace;
+    font-size: .75rem;
+}
+
+@media (min-width: 425px) {
+    .answers {
+        font-size: 1rem;
+    }
 }
 
 .code {
+    text-wrap: wrap;
     color: #d63384;
     font-size: .75rem;
+}
+
+@media (min-width: 425px) {
+    .code {
+        font-size: 1rem;
+    }
 }
