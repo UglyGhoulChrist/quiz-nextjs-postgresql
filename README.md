@@ -103,3 +103,21 @@ http://localhost:3000 - open with your browser to see the result
 - git merge feature/rest-api
 - git checkout main
 - git merge feature/rest-api
+
+## Created branch
+
+- git branch feature/rest-api-controllers
+- git checkout feature/rest-api-controllers
+
+## Created
+
+- pages [api/controllers/controllers.js, ]
+
+## Corrections
+
+- pages [api/question.js, api/questions/[:id].js, ]
+
+## Merge branch
+
+- git checkout develop
+- git merge feature/rest-api-controllers
