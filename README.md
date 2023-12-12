@@ -2,7 +2,8 @@
 
 [Code on GitHub](https://github.com/UglyGhoulChrist/quiz-nextjs-postgresql.git)    
 [Project on Vercel](https://quiz-nextjs-postgresql.vercel.app/)    
-[API on Vercel](https://quiz-nextjs-postgresql.vercel.app/api/questions/)    
+[API on Vercel](https://quiz-nextjs-postgresql.vercel.app/api/questions/) Methods [GET, POST, ]   
+[API on Vercel](https://quiz-nextjs-postgresql.vercel.app/api/questions/:id) Methods [GET, PUT, DELETE, ]   
 
 main - главная ветка    
 develop - ветка разработки    
@@ -82,3 +83,23 @@ http://localhost:3000 - open with your browser to see the result
 ## Delete branch
 
 - git branch -D hotfix
+
+## Created branch
+
+- git branch feature/rest-api
+- git checkout feature/rest-api
+
+## Created
+
+- pages [api/questions/:id, ]
+
+## Corrections
+
+- pages [api/question.js, ]
+
+## Merge branch
+
+- git checkout develop
+- git merge feature/rest-api
+- git checkout main
+- git merge feature/rest-api
