@@ -130,8 +130,9 @@ http://localhost:3000 - open with your browser to see the result
 ## Created
 
 - pages [admin, ]
-- components [CardAdmin]
+- components [CardAdmin, Form, ]
 - fetch(URL, { method: 'DELETE' })
+- fetch(URL, { method: 'POST' })
 
 ## Corrections
 

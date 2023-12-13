@@ -1,0 +1,35 @@
+.form {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0.25rem;
+    background-color: #dee;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+@media (min-width: 768px) {
+    .form {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.textarea {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0.25rem;
+    resize: none;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.inputList {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.input {
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}

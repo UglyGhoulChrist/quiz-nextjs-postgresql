@@ -14,7 +14,7 @@ function CardAdmin(props) {
         console.log('Change Answer')
     }
     function handleCreateAnswer() {
-        console.log('Create Answer')
+        window.scrollTo(0, 0)
     }
 
     return (

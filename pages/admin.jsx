@@ -1,4 +1,5 @@
 import CardAdmin from '@/components/CardAdmin'
+import Form from '@/components/Form'
 import styles from '@/pages/index.module.css'
 import { useEffect, useState } from 'react'
 
@@ -17,6 +18,7 @@ function Admin() {
     return (
         <>
             <h1 className={styles.header}>Admin</h1>
+            <Form />
             <ul className={styles.list}>
                 {questions.map(question => (
                     <CardAdmin key={question.id} {...question} />
