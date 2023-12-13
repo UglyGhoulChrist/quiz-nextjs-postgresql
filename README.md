@@ -121,3 +121,18 @@ http://localhost:3000 - open with your browser to see the result
 
 - git checkout develop
 - git merge feature/rest-api-controllers
+
+## Created branch
+
+- git branch feature/admin
+- git checkout feature/admin
+
+## Created
+
+- pages [admin, ]
+- components [CardAdmin]
+- fetch(URL, { method: 'DELETE' })
+
+## Corrections
+
+- next.config.js [ env ]
