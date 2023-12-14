@@ -137,3 +137,4 @@ http://localhost:3000 - open with your browser to see the result
 ## Corrections
 
 - next.config.js [ env ]
+- components [Form, ]

@@ -5,20 +5,17 @@ import Button from '@/components/Button'
 function Form() {
 
     const [question, setQuestion] = useState('')
-    const [answer1, setAnswer1] = useState('')
-    const [answer2, setAnswer2] = useState('')
-    const [answer3, setAnswer3] = useState('')
-    const [answer4, setAnswer4] = useState('')
+    const [listAnswers, setListAnswers] = useState(new Array(4).fill(''))
     const [rightAnswer, setRightAnswer] = useState('')
     const [explanation, setExplanation] = useState('')
 
     function onSubmitHandler(e) {
         e.preventDefault()
         const questionArr = [...question.split('\n')]
-        const answer = [answer1, answer2, answer3, answer4]
+
         const newQuestion = {
             question: questionArr,
-            answer,
+            listAnswers,
             rightAnswer,
             explanation
         }
@@ -31,78 +28,99 @@ function Form() {
             body: JSON.stringify(newQuestion)
         })
         setQuestion('')
-        setAnswer1('')
-        setAnswer2('')
-        setAnswer3('')
-        setAnswer4('')
+        setListAnswers(new Array(4).fill(''))
         setRightAnswer('')
         setExplanation('')
     }
 
     return (
         <form className={styles.form} onSubmit={onSubmitHandler}>
-            <div>
-                <textarea rows="11"
-                    className={styles.textarea}
-                    placeholder="Вопрос"
-                    value={question}
-                    onChange={(e) => {
-                        setQuestion(e.target.value)
-                    }}
-                />
-            </div>
+            <textarea rows="9"
+                className={styles.textarea}
+                placeholder="Вопрос"
+                value={question}
+                onChange={(e) => {
+                    setQuestion(e.target.value)
+                }}
+            />
             <div className={styles.inputList}>
-                <input
-                    className={styles.input}
-                    placeholder="1й вариант ответа"
-                    value={answer1}
-                    onChange={(e) => {
-                        setAnswer1(e.target.value)
-                    }}
-                />
-                <input
-                    className={styles.input}
-                    placeholder="2й вариант ответа"
-                    value={answer2}
-                    onChange={(e) => {
-                        setAnswer2(e.target.value)
-                    }}
-                />
-                <input
-                    className={styles.input}
-                    placeholder="3й вариант ответа"
-                    value={answer3}
-                    onChange={(e) => {
-                        setAnswer3(e.target.value)
-                    }}
-                />
-                <input
-                    className={styles.input}
-                    placeholder="4й вариант ответа"
-                    value={answer4}
-                    onChange={(e) => {
-                        setAnswer4(e.target.value)
-                    }}
-                />
-                <input
-                    className={styles.input}
-                    placeholder="Индекс правильного вариант ответа"
-                    value={rightAnswer}
-                    onChange={(e) => {
-                        setRightAnswer(e.target.value)
-                    }}
-                />
+                <div className={styles.inputItem}>
+                    <input
+                        className={styles.inputAnswer}
+                        placeholder="Вариант ответа"
+                        value={listAnswers[0]}
+                        onChange={(e) => {
+                            setListAnswers(listAnswers.map((el, idx) => idx === 0 ? e.target.value : el))
+                        }}
+                    />
+                    <input
+                        className={styles.inputRadio}
+                        type="radio"
+                        name='listAnswers'
+                        value={rightAnswer === 0}
+                        onChange={() => setRightAnswer(0)}
+                    />
+                </div>
+                <div className={styles.inputItem}>
+                    <input
+                        className={styles.inputAnswer}
+                        placeholder="Вариант ответа"
+                        value={listAnswers[1]}
+                        onChange={(e) => {
+                            setListAnswers(listAnswers.map((el, idx) => idx === 1 ? e.target.value : el))
+                        }}
+                    />
+                    <input
+                        className={styles.inputRadio}
+                        type="radio"
+                        name='listAnswers'
+                        value={rightAnswer === 1}
+                        onChange={() => setRightAnswer(1)}
+                    />
+                </div>
+                <div className={styles.inputItem}>
+                    <input
+                        className={styles.inputAnswer}
+                        placeholder="Вариант ответа"
+                        value={listAnswers[2]}
+                        onChange={(e) => {
+                            setListAnswers(listAnswers.map((el, idx) => idx === 2 ? e.target.value : el))
+                        }}
+                    />
+                    <input
+                        className={styles.inputRadio}
+                        type="radio"
+                        name='listAnswers'
+                        value={rightAnswer === 2}
+                        onChange={() => setRightAnswer(2)}
+                    />
+                </div>
+                <div className={styles.inputItem}>
+                    <input
+                        className={styles.inputAnswer}
+                        placeholder="Вариант ответа"
+                        value={listAnswers[3]}
+                        onChange={(e) => {
+                            setListAnswers(listAnswers.map((el, idx) => idx === 3 ? e.target.value : el))
+                        }}
+                    />
+                    <input
+                        className={styles.inputRadio}
+                        type="radio"
+                        name='listAnswers'
+                        value={rightAnswer === 3}
+                        onChange={() => setRightAnswer(3)}
+                    />
+                </div>
             </div>
-            <div>
-                <textarea rows="5"
-                    className={styles.textarea}
-                    placeholder="Пояснение"
-                    value={explanation}
-                    onChange={(e) => {
-                        setExplanation(e.target.value)
-                    }}
-                />
-            </div>
+            <textarea rows="5"
+                className={styles.textarea}
+                placeholder="Пояснение"
+                value={explanation}
+                onChange={(e) => {
+                    setExplanation(e.target.value)
+                }}
+            />
             <Button text='Записать' />
         </form>
     )

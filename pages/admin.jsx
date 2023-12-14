@@ -13,7 +13,7 @@ function Admin() {
             .then((data) => setQuestions(data))
             .catch(() => { })
             .finally(() => { })
-    }, [questions])
+    }, [])
 
     return (
         <>
