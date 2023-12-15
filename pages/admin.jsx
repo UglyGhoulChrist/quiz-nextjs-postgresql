@@ -6,6 +6,11 @@ import { useEffect, useState } from 'react'
 function Admin() {
 
     const [questions, setQuestions] = useState([])
+    const [update, setUpdate] = useState(Math.random())
+
+    function handleUpdate() {
+        setUpdate(Math.random())
+    }
 
     useEffect(() => {
         fetch(process.env.API_HOST + '/questions/')
@@ -13,15 +18,19 @@ function Admin() {
             .then((data) => setQuestions(data))
             .catch(() => { })
             .finally(() => { })
-    }, [])
+    }, [update])
 
     return (
         <>
             <h1 className={styles.header}>Admin</h1>
-            <Form />
+            <Form onSubmit={handleUpdate} />
             <ul className={styles.list}>
                 {questions.map(question => (
-                    <CardAdmin key={question.id} {...question} />
+                    <CardAdmin
+                        onDelete={handleUpdate}
+                        key={question.id}
+                        {...question}
+                    />
                 ))}
             </ul>
         </>

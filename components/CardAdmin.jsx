@@ -3,17 +3,16 @@ import Button from '@/components/Button'
 
 function CardAdmin(props) {
 
-    const { id, question, listAnswers, rightAnswer, explanation } = props
+    const { id, question, listAnswers, rightAnswer, explanation, onDelete } = props
 
-    function handleDeleteAnswer() {
+    function handleDeleteQuestion() {
         fetch(process.env.API_HOST + '/questions/' + id, {
             method: 'DELETE'
         })
+        onDelete()
     }
-    function handleChangeAnswer() {
-        console.log('Change Answer')
-    }
-    function handleCreateAnswer() {
+
+    function handleCreateQuestion() {
         window.scrollTo(0, 0)
     }
 
@@ -36,9 +35,8 @@ function CardAdmin(props) {
                     {explanation}
                 </div>
                 <div className={styles.buttons}>
-                    <Button onClick={handleDeleteAnswer} text='Удалить' />
-                    <Button onClick={handleChangeAnswer} text='Изменить' />
-                    <Button onClick={handleCreateAnswer} text='Создать' />
+                    <Button onClick={handleDeleteQuestion} text='Удалить' />
+                    <Button onClick={handleCreateQuestion} text='Создать' />
                 </div>
             </div>
         </li>

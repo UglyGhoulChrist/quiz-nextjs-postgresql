@@ -1,127 +1,141 @@
-import { useState } from 'react'
 import styles from '@/components/Form.module.css'
 import Button from '@/components/Button'
+import { useForm } from "react-hook-form"
 
-function Form() {
+function Form({ onSubmit }) {
 
-    const [question, setQuestion] = useState('')
-    const [listAnswers, setListAnswers] = useState(new Array(4).fill(''))
-    const [rightAnswer, setRightAnswer] = useState('')
-    const [explanation, setExplanation] = useState('')
+    const { register, formState: { errors }, handleSubmit, reset } = useForm({ mode: 'onChange' })
 
-    function onSubmitHandler(e) {
-        e.preventDefault()
-        const questionArr = [...question.split('\n')]
-
+    async function submitForm(data) {
+        const { question, answer0, answer1, answer2, answer3, rightAnswer, explanation } = data
         const newQuestion = {
-            question: questionArr,
-            listAnswers,
+            question: [...question.split('\n')],
+            listAnswers: [answer0, answer1, answer2, answer3],
             rightAnswer,
             explanation
         }
-
-        fetch(process.env.API_HOST + '/questions/', {
+        await fetch(process.env.API_HOST + '/questions/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify(newQuestion)
         })
-        setQuestion('')
-        setListAnswers(new Array(4).fill(''))
-        setRightAnswer('')
-        setExplanation('')
+        reset()
+        onSubmit()
     }
 
     return (
-        <form className={styles.form} onSubmit={onSubmitHandler}>
-            <textarea rows="9"
-                className={styles.textarea}
-                placeholder="Вопрос"
-                value={question}
-                onChange={(e) => {
-                    setQuestion(e.target.value)
-                }}
-            />
-            <div className={styles.inputList}>
+        <form className={styles.form} onSubmit={handleSubmit(submitForm)}>
+            <label className={styles.label}>Вопрос
+                <textarea rows='9'
+                    className={styles.textarea}
+                    autoComplete='off'
+                    placeholder={errors.question && errors.question.message}
+                    {...register('question', {
+                        required: {
+                            value: true,
+                            message: 'Обязательное поле'
+                        }
+                    })}
+                />
+            </label>
+
+            <label className={styles.inputList}>Варианты ответов
                 <div className={styles.inputItem}>
                     <input
                         className={styles.inputAnswer}
-                        placeholder="Вариант ответа"
-                        value={listAnswers[0]}
-                        onChange={(e) => {
-                            setListAnswers(listAnswers.map((el, idx) => idx === 0 ? e.target.value : el))
-                        }}
+                        autoComplete='off'
+                        placeholder={errors.answer0 && errors.answer0.message}
+                        {...register('answer0', {
+                            required: {
+                                value: true,
+                                message: 'Обязательное поле'
+                            }
+                        })}
                     />
                     <input
                         className={styles.inputRadio}
-                        type="radio"
-                        name='listAnswers'
-                        value={rightAnswer === 0}
-                        onChange={() => setRightAnswer(0)}
+                        type='radio'
+                        value={0}
+                        {...register('rightAnswer', { required: { value: true, message: 'Правильный ответ' } })}
                     />
                 </div>
                 <div className={styles.inputItem}>
                     <input
                         className={styles.inputAnswer}
-                        placeholder="Вариант ответа"
-                        value={listAnswers[1]}
-                        onChange={(e) => {
-                            setListAnswers(listAnswers.map((el, idx) => idx === 1 ? e.target.value : el))
-                        }}
+                        autoComplete='off'
+                        placeholder={errors.answer1 && errors.answer1.message}
+                        {...register('answer1', {
+                            required: {
+                                value: true,
+                                message: 'Обязательное поле'
+                            }
+                        })}
                     />
                     <input
                         className={styles.inputRadio}
-                        type="radio"
-                        name='listAnswers'
-                        value={rightAnswer === 1}
-                        onChange={() => setRightAnswer(1)}
+                        type='radio'
+                        value={1}
+                        {...register('rightAnswer', { required: { value: true, message: 'Правильный ответ' } })}
                     />
                 </div>
                 <div className={styles.inputItem}>
                     <input
                         className={styles.inputAnswer}
-                        placeholder="Вариант ответа"
-                        value={listAnswers[2]}
-                        onChange={(e) => {
-                            setListAnswers(listAnswers.map((el, idx) => idx === 2 ? e.target.value : el))
-                        }}
+                        autoComplete='off'
+                        placeholder={errors.answer2 && errors.answer2.message}
+                        {...register('answer2', {
+                            required: {
+                                value: true,
+                                message: 'Обязательное поле'
+                            }
+                        })}
                     />
                     <input
                         className={styles.inputRadio}
-                        type="radio"
-                        name='listAnswers'
-                        value={rightAnswer === 2}
-                        onChange={() => setRightAnswer(2)}
+                        type='radio'
+                        value={2}
+                        {...register('rightAnswer', { required: { value: true, message: 'Правильный ответ' } })}
                     />
                 </div>
                 <div className={styles.inputItem}>
                     <input
                         className={styles.inputAnswer}
-                        placeholder="Вариант ответа"
-                        value={listAnswers[3]}
-                        onChange={(e) => {
-                            setListAnswers(listAnswers.map((el, idx) => idx === 3 ? e.target.value : el))
-                        }}
+                        autoComplete='off'
+                        placeholder={errors.answer3 && errors.answer3.message}
+                        {...register('answer3', {
+                            required: {
+                                value: true,
+                                message: 'Обязательное поле'
+                            }
+                        })}
                     />
                     <input
                         className={styles.inputRadio}
-                        type="radio"
-                        name='listAnswers'
-                        value={rightAnswer === 3}
-                        onChange={() => setRightAnswer(3)}
+                        type='radio'
+                        value={3}
+                        {...register('rightAnswer', { required: { value: true, message: 'Правильный ответ' } })}
                     />
                 </div>
+            </label>
+
+            <label className={styles.label}>Пояснение
+                <textarea rows='5'
+                    className={styles.textarea}
+                    autoComplete='off'
+                    placeholder={errors.explanation && errors.explanation.message}
+                    {...register('explanation', {
+                        required: {
+                            value: true,
+                            message: 'Обязательное поле'
+                        }
+                    })}
+                />
+            </label>
+            <div className={styles.button}>
+                <Button text='Записать' />
             </div>
-            <textarea rows="5"
-                className={styles.textarea}
-                placeholder="Пояснение"
-                value={explanation}
-                onChange={(e) => {
-                    setExplanation(e.target.value)
-                }}
-            />
-            <Button text='Записать' />
         </form>
     )
 }
