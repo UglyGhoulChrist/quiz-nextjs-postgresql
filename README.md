@@ -156,3 +156,11 @@ http://localhost:3000 - open with your browser to see the result
 ## Corrections
 
 - fixed the structure HTML of the question (div>pre*n => pre)
+
+## Created branch
+
+- hotfix/highlight
+
+## Corrections
+
+- fixed highlight code
