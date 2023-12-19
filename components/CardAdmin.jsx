@@ -20,11 +20,9 @@ function CardAdmin(props) {
     return (
         <li className={styles.card}>
             <div className={styles.questionAnswer}>
-                <div className={styles.question}>
-                    {stringQuestion.map((string, idx) => (
-                        <pre className={styles.code} key={idx}>{string + ' '}</pre>
-                    ))}
-                </div>
+                <pre className={styles.question}>
+                    {question}
+                </pre>
                 <div className={styles.answers}>
                     {listAnswers.map((answer, idx) => (
                         <span className={`${idx == rightAnswer ? styles.answer_right : ''}`} key={idx}>{answer}</span>

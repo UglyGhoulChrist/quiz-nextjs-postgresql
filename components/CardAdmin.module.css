@@ -20,8 +20,15 @@
 }
 
 .question {
-    display: flex;
-    flex-direction: column;
+    color: #d63384;
+    font-size: .75rem;
+    white-space: pre-wrap;
+}
+
+@media (min-width: 425px) {
+    .question {
+        font-size: 1rem;
+    }
 }
 
 .answers {
@@ -44,18 +51,6 @@
     color: blue;
 }
 
-.code {
-    text-wrap: wrap;
-    color: #d63384;
-    font-size: .75rem;
-}
-
-@media (min-width: 425px) {
-    .code {
-        font-size: 1rem;
-    }
-}
-
 .explanationButtons {
     display: flex;
     flex-direction: column;
@@ -64,6 +59,7 @@
 
 .explanation {
     font-size: 0.75rem;
+    text-align: justify;
 }
 
 @media (min-width: 425px) {

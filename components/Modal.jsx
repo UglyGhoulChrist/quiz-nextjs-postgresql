@@ -11,7 +11,7 @@ function Modal({ listAnswers, rightAnswer, explanation, hidden, onClick }) {
                         &times;
                     </button>
                 </div>
-                <div className={styles.body}>
+                <div className={styles.explanation}>
                     {explanation}
                 </div>
                 <div className={styles.footer}>
