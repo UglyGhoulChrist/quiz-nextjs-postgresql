@@ -139,3 +139,20 @@ http://localhost:3000 - open with your browser to see the result
 - next.config.js [ env ]
 - components [Form, ]
 - components [Form -> React Hook Form, ]
+
+## Created branch
+
+- git branch hotfix/structure-question
+- git checkout hotfix/structure-question
+
+## Corrections
+
+- fixed the structure of the question (array=>string)
+
+## Created branch
+
+- hotfix/string-question-converted-pre-question
+
+## Corrections
+
+- fixed the structure HTML of the question (div>pre*n => pre)
