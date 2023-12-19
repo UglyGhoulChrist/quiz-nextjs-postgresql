@@ -9,7 +9,7 @@ function Form({ onSubmit }) {
     async function submitForm(data) {
         const { question, answer0, answer1, answer2, answer3, rightAnswer, explanation } = data
         const newQuestion = {
-            question: [...question.split('\n')],
+            question,
             listAnswers: [answer0, answer1, answer2, answer3],
             rightAnswer,
             explanation

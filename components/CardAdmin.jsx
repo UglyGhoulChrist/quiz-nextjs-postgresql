@@ -4,6 +4,7 @@ import Button from '@/components/Button'
 function CardAdmin(props) {
 
     const { id, question, listAnswers, rightAnswer, explanation, onDelete } = props
+    const stringQuestion = question.split('\n')
 
     function handleDeleteQuestion() {
         fetch(process.env.API_HOST + '/questions/' + id, {
@@ -20,8 +21,8 @@ function CardAdmin(props) {
         <li className={styles.card}>
             <div className={styles.questionAnswer}>
                 <div className={styles.question}>
-                    {question.map((string, idx) => (
-                        <pre className={styles.code} key={idx}>{string}</pre>
+                    {stringQuestion.map((string, idx) => (
+                        <pre className={styles.code} key={idx}>{string + ' '}</pre>
                     ))}
                 </div>
                 <div className={styles.answers}>

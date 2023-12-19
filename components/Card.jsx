@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 function Card(props) {
     const { question, listAnswers } = props
-
+    const stringQuestion = question.split('\n')
     const [hidden, setHidden] = useState(true)
 
     const handleHiddenModal = () => {
@@ -15,8 +15,8 @@ function Card(props) {
     return (
         <li className={styles.card}>
             <div className={styles.question}>
-                {question.map((string, idx) => (
-                    <pre className={styles.code} key={idx}>{string}</pre>
+                {stringQuestion.map((string, idx) => (
+                    <pre className={styles.code} key={idx}>{string + ' '}</pre>
                 ))}
             </div>
             <div className={styles.answers}>
