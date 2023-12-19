@@ -6,6 +6,13 @@
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+
+    transition: all .3s ease 0s;
+    opacity: 0;
+}
+
+.card:has([class*='hljs']) {
+    opacity: 1;
 }
 
 @media (min-width: 768px) {
@@ -15,7 +22,6 @@
 }
 
 .question {
-    color: #d63384;
     font-size: .75rem;
     white-space: pre-wrap;
 }

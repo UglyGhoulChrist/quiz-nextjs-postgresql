@@ -1,4 +1,6 @@
 import '@/pages/reset.css'
+// Import a theme from the package
+import '@/highlight/atom-one-light.css'
 import Layout from '@/layouts/Layout.jsx'
 import Head from 'next/head'
 
