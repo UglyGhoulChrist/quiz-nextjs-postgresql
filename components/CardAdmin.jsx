@@ -1,6 +1,11 @@
 import styles from '@/components/CardAdmin.module.css'
 import Button from '@/components/Button'
 
+import { useState, useEffect } from 'react'
+import javascript from '@/highlight/javascript'
+hljs.registerLanguage('javascript', javascript)
+import hljs from '@/highlight/core'
+
 function CardAdmin(props) {
 
     const { id, question, listAnswers, rightAnswer, explanation, onDelete } = props
@@ -17,11 +22,15 @@ function CardAdmin(props) {
         window.scrollTo(0, 0)
     }
 
+    useEffect(() => {
+        hljs.highlightAll()
+    }, [])
+
     return (
         <li className={styles.card}>
             <div className={styles.questionAnswer}>
                 <pre className={styles.question}>
-                    {question}
+                    <code>{question}</code>
                 </pre>
                 <div className={styles.answers}>
                     {listAnswers.map((answer, idx) => (
