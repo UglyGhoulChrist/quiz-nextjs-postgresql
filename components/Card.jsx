@@ -10,10 +10,10 @@ import hljs from '@/highlight/core'
 
 function Card(props) {
     const { question, listAnswers } = props
-    const [hidden, setHidden] = useState(true)
+    const [visible, setVisible] = useState(false)
 
     const handleHiddenModal = () => {
-        setHidden(prev => !prev)
+        setVisible(prev => !prev)
     }
 
     useEffect(() => {
@@ -31,7 +31,7 @@ function Card(props) {
                 ))}
                 <Button onClick={handleHiddenModal} text='Ответ' />
             </div>
-            <Modal hidden={hidden} {...props} onClick={handleHiddenModal} />
+            <Modal visible={visible} {...props} onClick={handleHiddenModal} />
         </li>
     )
 }

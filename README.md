@@ -164,3 +164,11 @@ http://localhost:3000 - open with your browser to see the result
 ## Corrections
 
 - fixed highlight code
+
+## Created branch
+
+- hotfix/modal-hidden
+
+## Corrections
+
+- fixed the appearance of a modal window when loading

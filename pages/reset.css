@@ -56,6 +56,6 @@ body {
 		'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 
-body:has(.null) {
+body:has([class*="Modal_visible"]) {
 	overflow: hidden;
 }
