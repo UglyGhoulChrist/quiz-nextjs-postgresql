@@ -12,7 +12,7 @@ function Card(props) {
     const { question, listAnswers } = props
     const [visible, setVisible] = useState(false)
 
-    const handleHiddenModal = () => {
+    const handleVisibleModal = () => {
         setVisible(prev => !prev)
     }
 
@@ -29,9 +29,9 @@ function Card(props) {
                 {listAnswers.map((answer, idx) => (
                     <span key={idx}>{answer}</span>
                 ))}
-                <Button onClick={handleHiddenModal} text='Ответ' />
+                <Button onClick={handleVisibleModal} text='Ответ' />
             </div>
-            <Modal visible={visible} {...props} onClick={handleHiddenModal} />
+            <Modal visible={visible} {...props} onClick={handleVisibleModal} />
         </li>
     )
 }
