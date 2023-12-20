@@ -14,6 +14,7 @@ function App({ Component, pageProps }) {
                 <meta name="author" content="UglyGhoulChrist@gmail.com" />
                 <meta name="copyright" content="UglyGhoulChrist" />
                 <meta name="address" content="Россия, Владимирская область, город Александров" />
+                <link rel="icon" href="favicon.ico"></link>
                 <title>Quiz</title>
             </Head>
             <Layout>

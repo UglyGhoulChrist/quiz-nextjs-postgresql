@@ -220,11 +220,17 @@ https://quiz-nextjs-postgresql.vercel.app/api/v1/questions/:id 'DELETE'
 question = {
     "id": 0,
     "question": "code \n code \n code",
-    "listAnswers": [
+    "listanswers": [
         "answer-0", "answer-1", "answer-2", "answer-3"
     ],
-    "rightAnswer": 0,
+    "rightanswer": 0,
     "explanation": "text"
 }
 
-https://.../api/questions... -> https://.../api/v1/questions...
+## Created
+
+- https://.../api/v1/questions... (postgresql)
+
+## Corrections
+
+- https://.../api/questions... =>  https://.../api/v0/questions... (questions.js)

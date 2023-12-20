@@ -25,15 +25,17 @@ function Admin() {
         <>
             <h1 className={styles.header}>Admin</h1>
             <Form onSubmit={handleUpdate} />
-            <ul className={styles.list}>
-                {questions.map(question => (
-                    <CardAdmin
-                        onDelete={handleUpdate}
-                        key={question.id}
-                        {...question}
-                    />
-                ))}
-            </ul>
+            {questions.length ?
+                <ul className={styles.list}>
+                    {questions.map(question => (
+                        <CardAdmin
+                            onDelete={handleUpdate}
+                            key={question.id}
+                            {...question}
+                        />
+                    ))}
+                </ul> :
+                'Список пустой'}
         </>
     )
 }
