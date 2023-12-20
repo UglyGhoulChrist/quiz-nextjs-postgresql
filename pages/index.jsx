@@ -1,4 +1,4 @@
-import Card from '@/components/Card'
+import Card from '@/components/Card/Card'
 import styles from '@/pages/index.module.css'
 
 const getStaticProps = async () => {

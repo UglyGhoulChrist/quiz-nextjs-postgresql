@@ -1,15 +1,15 @@
-import styles from '@/components/CardAdmin.module.css'
+import styles from '@/components/Card/CardAdmin.module.css'
 import Button from '@/components/Button'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import javascript from '@/highlight/javascript'
 hljs.registerLanguage('javascript', javascript)
 import hljs from '@/highlight/core'
+import PreCode from '@/components/Card/PreCode'
 
 function CardAdmin(props) {
 
     const { id, question, listAnswers, rightAnswer, explanation, onDelete } = props
-    const stringQuestion = question.split('\n')
 
     function handleDeleteQuestion() {
         fetch(process.env.API_HOST + '/questions/' + id, {
@@ -29,9 +29,7 @@ function CardAdmin(props) {
     return (
         <li className={styles.card}>
             <div className={styles.questionAnswer}>
-                <pre className={styles.question}>
-                    <code>{question}</code>
-                </pre>
+                <PreCode question={question} />
                 <div className={styles.answers}>
                     {listAnswers.map((answer, idx) => (
                         <span className={`${idx == rightAnswer ? styles.answer_right : ''}`} key={idx}>{answer}</span>

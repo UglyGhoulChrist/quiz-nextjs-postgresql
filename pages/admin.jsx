@@ -1,4 +1,4 @@
-import CardAdmin from '@/components/CardAdmin'
+import CardAdmin from '@/components/Card/CardAdmin'
 import Form from '@/components/Form'
 import styles from '@/pages/index.module.css'
 import { useEffect, useState } from 'react'
