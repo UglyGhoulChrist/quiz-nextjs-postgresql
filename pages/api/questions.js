@@ -1,21 +1,22 @@
-import { getQuestionsHandler, addQuestionsHandler } from '@/pages/api/controllers/controllers'
+
+import { getQuestionsAllHandler, createQuestionSingleHandler } from '@/pages/api/controllers/controllers'
 
 function handler(req, res) {
 
     switch (req.method) {
 
-        // Получение списка вопросов
+        // Получение всех вопросов
         case 'GET':
-            getQuestionsHandler(req, res)
+            getQuestionsAllHandler(req, res)
             break
 
         // Создание вопроса, поля вопроса в теле запроса
         case 'POST':
-            addQuestionsHandler(req, res)
+            createQuestionSingleHandler(req, res)
             break
 
         default:
-            res.status(405).send('Not found')
+            res.status(405).send('Method Not Allowed')
     }
 }
 

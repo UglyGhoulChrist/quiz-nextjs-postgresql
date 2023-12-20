@@ -15,9 +15,10 @@ function Admin() {
     useEffect(() => {
         fetch(process.env.API_HOST + '/questions/')
             .then((response) => response.json())
-            .then((data) => setQuestions(data))
+            .then((data) => setQuestions(data.questionsList))
             .catch(() => { })
             .finally(() => { })
+
     }, [update])
 
     return (

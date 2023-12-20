@@ -9,7 +9,7 @@ import hljs from '@/highlight/core'
 
 
 function Card(props) {
-    const { question, listAnswers } = props
+    const { question, listanswers } = props
     const [visible, setVisible] = useState(false)
 
     const handleVisibleModal = () => {
@@ -23,7 +23,7 @@ function Card(props) {
     return (
         <li className={styles.card}>
             <PreCode question={question} />
-            <AnswerOptions listAnswers={listAnswers} buttonText={'Ответ'} onClick={handleVisibleModal} />
+            <AnswerOptions listanswers={listanswers} buttonText={'Ответ'} onClick={handleVisibleModal} />
             <Modal visible={visible} {...props} onClick={handleVisibleModal} />
         </li>
     )

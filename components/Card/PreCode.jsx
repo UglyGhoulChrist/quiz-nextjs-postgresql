@@ -4,7 +4,7 @@ function PreCode({ question }) {
     return (
         <pre className={styles.question}>
             <span className={styles.title}>JavaScript:</span>
-            <code className={styles.code}>{question}</code>
+            <code className={`${styles.code} language-javascript`}>{question}</code>
         </pre>
     )
 }

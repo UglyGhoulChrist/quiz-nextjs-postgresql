@@ -4,8 +4,8 @@ import styles from '@/pages/index.module.css'
 const getStaticProps = async () => {
     try {
         const response = await fetch(process.env.API_HOST + '/questions/')
-        const data = await response.json()
-        return { props: { questionsList: data } }
+        const { questionsList } = await response.json()
+        return { props: { questionsList: questionsList } }
     } catch (error) {
         return { notFound: true }
     }

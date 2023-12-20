@@ -1,12 +1,12 @@
 import Button from '@/components/Button'
 import styles from '@/components/Modal.module.css'
 
-function Modal({ listAnswers, rightAnswer, explanation, visible, onClick }) {
+function Modal({ listanswers, rightanswer, explanation, visible, onClick }) {
     return (
         <div className={`${styles.modal} ${visible ? styles.visible : null}`}>
             <div className={styles.content}>
                 <div className={styles.header}>
-                    <h3>{listAnswers[rightAnswer]}</h3>
+                    <h3>{listanswers[rightanswer]}</h3>
                     <button onClick={onClick} className={styles.close}>
                         &times;
                     </button>

@@ -20,7 +20,7 @@ function handler(req, res) {
             break
 
         default:
-            res.status(405).send('Not found')
+            res.status(405).send('Method Not Allowed')
             break
     }
 }

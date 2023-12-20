@@ -1,72 +1,70 @@
-import questions from "@/pages/api/data/questions"
+import { sql } from '@vercel/postgres'
 
-// Глубокая копия массива
-const questionsList = structuredClone(questions)
+// Создание таблицы
+async function createTable(req, res) {
+    const result =
+        await sql`CREATE TABLE TableQuestions ( Id serial primary key, Question text, ListAnswers varchar(255)[], RightAnswer integer, Explanation text );`
+    return res.status(200).json({ result })
+}
 
-// Получение списка вопросов
-const getQuestionsHandler = (req, res) => {
-    res.status(200).json(questionsList)
+// Получение всех вопросов
+async function getQuestionsAllHandler(req, res) {
+    const tableQuestions = await sql`SELECT * FROM TableQuestions;`
+    const questionsList = tableQuestions.rows
+    return res.status(200).json({ questionsList })
 }
 
 // Получение вопроса по ИД
-const getQuestionSingleHandler = (req, res) => {
-
-    const question = questionsList.find(({ id }) => id == req.query.id)
-
-    if (question) {
-        res.status(200).json(question)
-    } else {
-        res.status(404).send('Not found')
-    }
+async function getQuestionSingleHandler(req, res) {
+    const id = req.query.id
+    const tableQuestions = await sql`SELECT * FROM TableQuestions WHERE Id=${id};`
+    const questionsList = tableQuestions.rows
+    return res.status(200).json({ questionsList })
 }
 
-// Создание вопроса, поля вопроса в теле запроса
-const addQuestionsHandler = (req, res) => {
-
-    const newQuestion = {
-        // Генерация ID случайным образом
-        id: Math.floor(Math.random() * 1000),
-        question: req.body.question || ['question', 'question', 'question'],
-        listAnswers: req.body.listAnswers || ['answer', 'answer', 'answer', 'answer'],
-        rightAnswer: req.body.rightAnswer || Math.floor(Math.random() * 4),
-        explanation: req.body.explanation || 'explanation'
+// Создание вопроса
+async function createQuestionSingleHandler(req, res) {
+    try {
+        const { question, listAnswers, rightAnswer, explanation } = req.body
+        if (!question || listAnswers.length <= 1 || !rightAnswer in [0, 1, 2, 3] || !explanation) throw new Error('Question required')
+        await sql`INSERT INTO TableQuestions (Question, ListAnswers, RightAnswer, Explanation) VALUES (${question}, ${listAnswers}, ${rightAnswer}, ${explanation});`
+    } catch (error) {
+        return res.status(500).json({ error })
     }
 
-    questionsList.push(newQuestion)
-    res.status(201).json(newQuestion)
+    const tableQuestions = await sql`SELECT * FROM TableQuestions;`
+    const questionsList = tableQuestions.rows
+    return res.status(201).json({ questionsList })
+}
+
+// Изменение вопроса по ИД
+async function changeQuestionSingleHandler(req, res) {
+    return res.status(200).res('It will be done later')
 }
 
 // Удаление вопроса из списка по ИД
-const deleteQuestionSingleHandler = (req, res) => {
-
-    const deleteId = questionsList.findIndex(({ id }) => id == req.query.id)
-
-    if (deleteId === -1) {
-        res.status(404).send('Not found')
-    } else {
-        questionsList.splice(deleteId, 1)
-        res.status(200).json(questionsList)
-    }
+async function deleteQuestionSingleHandler(req, res) {
+    const id = req.query.id
+    await sql`DELETE FROM TableQuestions WHERE Id=${id};`
+    const tableQuestions = await sql`SELECT * FROM TableQuestions;`
+    const questionsList = tableQuestions.rows
+    return res.status(200).json({ questionsList })
 }
 
-// Изменение вопроса по ИД, поля вопроса в теле запроса
-const changeQuestionSingleHandler = (req, res) => {
-
-    const putId = questionsList.findIndex(({ id }) => id == req.query.id)
-
-    if (putId === -1) {
-        res.status(404).send('Not found')
-    } else {
-        questionsList.forEach(question => {
-            if (question.id == req.query.id) {
-                question.question = req.body.question || question.question
-                question.listAnswers = req.body.listAnswers || question.listAnswers
-                question.rightAnswer = req.body.rightAnswer || question.rightAnswer
-                question.explanation = req.body.explanation || question.explanation
-            }
-        })
-        res.status(200).json(questionsList)
-    }
+// Удаление всех вопросов из списка
+async function deleteQuestionsAllHandler(req, res) {
+    await sql`DELETE FROM TableQuestions;`
+    const tableQuestions = await sql`SELECT * FROM TableQuestions;`
+    const questionsList = tableQuestions.rows
+    return res.status(200).json({ questionsList })
 }
 
-export { getQuestionsHandler, getQuestionSingleHandler, addQuestionsHandler, deleteQuestionSingleHandler, changeQuestionSingleHandler }
+export {
+    createTable,
+    getQuestionsAllHandler,
+    getQuestionSingleHandler,
+    createQuestionSingleHandler,
+    changeQuestionSingleHandler,
+    deleteQuestionSingleHandler,
+    deleteQuestionsAllHandler
+}
