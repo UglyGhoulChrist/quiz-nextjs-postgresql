@@ -172,3 +172,19 @@ http://localhost:3000 - open with your browser to see the result
 ## Corrections
 
 - fixed the appearance of a modal window when loading
+
+## Created branch
+
+- hotfix/answer-options
+
+## Corrections
+
+- fixed answer-options and added color style
+
+## Created branch
+
+- hotfix/card-title-javascript
+
+## Corrections
+
+- fixed card-title-javascript
