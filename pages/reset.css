@@ -59,3 +59,7 @@ body {
 body:has([class*="Modal_visible"]) {
 	overflow: hidden;
 }
+
+body {
+	background-color: #eee;
+}

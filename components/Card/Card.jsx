@@ -1,13 +1,12 @@
 import styles from '@/components/Card/Card.module.css'
-import Button from '@/components/Button'
 import Modal from '@/components/Modal'
-import { useState } from 'react'
-
-import { useEffect } from 'react'
+import PreCode from '@/components/Card/PreCode'
+import AnswerOptions from '@/components/Card/AnswerOptions'
+import { useState, useEffect } from 'react'
 import javascript from '@/highlight/javascript'
 hljs.registerLanguage('javascript', javascript)
 import hljs from '@/highlight/core'
-import PreCode from '@/components/Card/PreCode'
+
 
 function Card(props) {
     const { question, listAnswers } = props
@@ -24,12 +23,7 @@ function Card(props) {
     return (
         <li className={styles.card}>
             <PreCode question={question} />
-            <div className={styles.answers}>
-                {listAnswers.map((answer, idx) => (
-                    <span key={idx}>{answer}</span>
-                ))}
-                <Button onClick={handleVisibleModal} text='Ответ' />
-            </div>
+            <AnswerOptions listAnswers={listAnswers} buttonText={'Ответ'} onClick={handleVisibleModal} />
             <Modal visible={visible} {...props} onClick={handleVisibleModal} />
         </li>
     )

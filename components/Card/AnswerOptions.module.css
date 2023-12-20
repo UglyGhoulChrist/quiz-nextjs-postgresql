@@ -1,0 +1,40 @@
+.answers {
+    border-radius: .2rem;
+    overflow: hidden;
+    background-color: #fbfbff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-family: monospace;
+    font-size: .75rem;
+}
+
+.answers button {
+    margin: auto 0 0.5rem 0.5rem;
+}
+
+@media (min-width: 425px) {
+    .answers {
+        font-size: 1rem;
+    }
+}
+
+.title {
+    padding: 0.5rem;
+    display: block;
+    background-color: #f1f1ff;
+}
+
+.answer {
+    padding: 0 0.5rem;
+}
+
+.answer:last-child {
+    margin-bottom: 0.5rem;
+}
+
+
+.answer_right {
+    font-weight: 700;
+    color: blue;
+}

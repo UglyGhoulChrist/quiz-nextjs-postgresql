@@ -1,12 +1,12 @@
 .card {
     overflow-x: hidden;
-    border: 1px solid rgba(0, 0, 0, .125);
+    border: 1px solid rgba(0, 0, 0, .5);
     border-radius: 0.25rem;
+    background-color: #fff;
     padding: 0.5rem;
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1rem;
-
+    gap: .5rem;
     transition: all .3s ease 0s;
     opacity: 0;
 }
@@ -26,33 +26,22 @@
     gap: 1rem;
 }
 
-.answers {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.3rem;
-    font-family: monospace;
-    font-size: .75rem;
-}
-
-@media (min-width: 425px) {
-    .answers {
-        font-size: 1rem;
-    }
-}
-
-.answer_right {
-    font-weight: 700;
-    color: blue;
-}
-
 .explanationButtons {
+    background-color: #fbfffb;
+    border-radius: .2rem;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+}
+
+.title {
+    display: block;
+    background-color: #f1fff1;
+    padding: 0.5rem;
 }
 
 .explanation {
+    padding: 0.5rem;
     font-size: 0.75rem;
     text-align: justify;
 }
@@ -64,6 +53,8 @@
 }
 
 .buttons {
+    margin-top: auto;
+    padding: 0.5rem;
     display: flex;
     gap: 1rem;
 }
