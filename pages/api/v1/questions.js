@@ -1,5 +1,5 @@
 
-import { getQuestionsAllHandler, createQuestionSingleHandler } from '@/pages/api/controllers/controllers'
+import { getQuestionsAllHandler, createQuestionSingleHandler } from '@/pages/api/v1/controllers/controllers'
 
 function handler(req, res) {
 

@@ -3,7 +3,7 @@ import styles from '@/pages/index.module.css'
 
 const getStaticProps = async () => {
     try {
-        const response = await fetch(process.env.API_HOST + '/questions/')
+        const response = await fetch(process.env.API_HOST + '/v1/questions/')
         const { questionsList } = await response.json()
         return { props: { questionsList: questionsList } }
     } catch (error) {

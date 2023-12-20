@@ -188,3 +188,43 @@ http://localhost:3000 - open with your browser to see the result
 ## Corrections
 
 - fixed card-title-javascript
+
+## Created branch
+
+- git branch feature/postgresql
+- git checkout feature/postgresql
+
+## Added dependencies
+
+- yarn add @vercel/postgres
+
+## API 
+
+https://quiz-nextjs-postgresql.vercel.app/api/v1/createTable 'GET'
+https://quiz-nextjs-postgresql.vercel.app/api/v1/questions 'GET'
+https://quiz-nextjs-postgresql.vercel.app/api/v1/questions/:id 'GET'
+https://quiz-nextjs-postgresql.vercel.app/api/v1/questions 'POST'
+https://quiz-nextjs-postgresql.vercel.app/api/v1/questions 'DELETE'
+https://quiz-nextjs-postgresql.vercel.app/api/v1/questions/:id 'DELETE'
+
+## PostgreSQL
+
+- Id serial primary key
+- Question text
+- ListAnswers varchar(255)[]
+- RightAnswer integer
+- Explanation text
+
+## Corrections
+
+question = {
+    "id": 0,
+    "question": "code \n code \n code",
+    "listAnswers": [
+        "answer-0", "answer-1", "answer-2", "answer-3"
+    ],
+    "rightAnswer": 0,
+    "explanation": "text"
+}
+
+https://.../api/questions... -> https://.../api/v1/questions...

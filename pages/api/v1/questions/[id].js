@@ -1,4 +1,4 @@
-import { getQuestionSingleHandler, deleteQuestionSingleHandler, changeQuestionSingleHandler } from '@/pages/api/controllers/controllers'
+import { getQuestionSingleHandler, deleteQuestionSingleHandler, changeQuestionSingleHandler } from '@/pages/api/v1/controllers/controllers'
 
 function handler(req, res) {
 

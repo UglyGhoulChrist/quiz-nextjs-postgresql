@@ -12,7 +12,7 @@ function CardAdmin(props) {
     const { id, question, listAnswers, rightAnswer, explanation, onDelete } = props
 
     async function handleDeleteQuestion() {
-        await fetch(process.env.API_HOST + '/questions/' + id, {
+        await fetch(process.env.API_HOST + '/v1/questions/' + id, {
             method: 'DELETE'
         })
         onDelete()

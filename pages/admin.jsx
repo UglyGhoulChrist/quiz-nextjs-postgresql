@@ -13,7 +13,7 @@ function Admin() {
     }
 
     useEffect(() => {
-        fetch(process.env.API_HOST + '/questions/')
+        fetch(process.env.API_HOST + '/v1/questions/')
             .then((response) => response.json())
             .then((data) => setQuestions(data.questionsList))
             .catch(() => { })

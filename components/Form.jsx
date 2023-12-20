@@ -14,7 +14,7 @@ function Form({ onSubmit }) {
             rightAnswer,
             explanation
         }
-        await fetch(process.env.API_HOST + '/questions/', {
+        await fetch(process.env.API_HOST + '/v1/questions/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
