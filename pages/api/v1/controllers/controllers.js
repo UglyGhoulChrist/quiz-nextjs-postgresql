@@ -3,7 +3,7 @@ import { sql } from '@vercel/postgres'
 // Создание таблицы
 async function createTable(req, res) {
     const result =
-        await sql`CREATE TABLE TableQuestions ( Id serial primary key, Question text, ListAnswers varchar(255)[], RightAnswer integer, Explanation text );`
+        await sql`CREATE TABLE TableQuestions ( Id serial primary key, Question text, listanswers varchar(255)[], rightanswer integer, Explanation text );`
     return res.status(200).json({ result })
 }
 
@@ -25,9 +25,9 @@ async function getQuestionSingleHandler(req, res) {
 // Создание вопроса
 async function createQuestionSingleHandler(req, res) {
     try {
-        const { question, listAnswers, rightAnswer, explanation } = req.body
-        if (!question || listAnswers.length <= 1 || !rightAnswer in [0, 1, 2, 3] || !explanation) throw new Error('Question required')
-        await sql`INSERT INTO TableQuestions (Question, ListAnswers, RightAnswer, Explanation) VALUES (${question}, ${listAnswers}, ${rightAnswer}, ${explanation});`
+        const { question, listanswers, rightanswer, explanation } = req.body
+        if (!question || listanswers.length <= 1 || !rightanswer in [0, 1, 2, 3] || !explanation) throw new Error('Question required')
+        await sql`INSERT INTO TableQuestions (Question, listanswers, rightanswer, Explanation) VALUES (${question}, ${listanswers}, ${rightanswer}, ${explanation});`
     } catch (error) {
         return res.status(500).json({ error })
     }

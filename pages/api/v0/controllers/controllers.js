@@ -27,8 +27,8 @@ const addQuestionsHandler = (req, res) => {
         // Генерация ID случайным образом
         id: Math.floor(Math.random() * 1000),
         question: req.body.question || ['question', 'question', 'question'],
-        listAnswers: req.body.listAnswers || ['answer', 'answer', 'answer', 'answer'],
-        rightAnswer: req.body.rightAnswer || Math.floor(Math.random() * 4),
+        listanswers: req.body.listanswers || ['answer', 'answer', 'answer', 'answer'],
+        rightanswer: req.body.rightanswer || Math.floor(Math.random() * 4),
         explanation: req.body.explanation || 'explanation'
     }
 
@@ -60,8 +60,8 @@ const changeQuestionSingleHandler = (req, res) => {
         questionsList.forEach(question => {
             if (question.id == req.query.id) {
                 question.question = req.body.question || question.question
-                question.listAnswers = req.body.listAnswers || question.listAnswers
-                question.rightAnswer = req.body.rightAnswer || question.rightAnswer
+                question.listanswers = req.body.listanswers || question.listanswers
+                question.rightanswer = req.body.rightanswer || question.rightanswer
                 question.explanation = req.body.explanation || question.explanation
             }
         })

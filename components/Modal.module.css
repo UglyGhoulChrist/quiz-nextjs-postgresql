@@ -45,13 +45,20 @@
 /* Animated modal End */
 
 .header {
-    padding: 1rem;
+    padding: .5rem 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #dee2e6;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+@media (min-width: 425px) {
+    .header {
+        font-size: 1.5rem;
+    }
 }
 
 .close {
@@ -62,20 +69,13 @@
 }
 
 .explanation {
-    padding: 1rem;
-    font-size: 0.75rem;
+    padding: .5rem 1rem;
     text-align: justify;
-}
-
-@media (min-width: 425px) {
-    .explanation {
-        font-size: 1rem;
-    }
 }
 
 .footer {
     border-top: 1px solid #dee2e6;
-    padding: 1rem;
+    padding: .5rem 1rem;
     display: flex;
     justify-content: flex-end;
 }

@@ -10,7 +10,7 @@ function Header() {
           target="_blank"
           className={styles.link}
         >
-          Telegram
+          Quiz
         </a>
       </nav>
     </header>

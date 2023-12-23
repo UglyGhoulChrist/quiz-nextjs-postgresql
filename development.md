@@ -229,8 +229,8 @@ https://quiz-nextjs-postgresql.vercel.app/api/v1/questions/:id 'DELETE'
 
 - Id serial primary key
 - Question text
-- ListAnswers varchar(255)[]
-- RightAnswer integer
+- listanswers varchar(255)[]
+- rightanswer integer
 - Explanation text
 
 ## Corrections

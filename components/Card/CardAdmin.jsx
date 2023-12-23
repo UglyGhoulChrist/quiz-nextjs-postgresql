@@ -9,7 +9,7 @@ import hljs from '@/highlight/core'
 
 function CardAdmin(props) {
 
-    const { id, question, listAnswers, rightAnswer, explanation, onDelete } = props
+    const { id, question, listanswers, rightanswer, explanation, onDelete } = props
 
     async function handleDeleteQuestion() {
         await fetch(process.env.API_HOST + '/v1/questions/' + id, {
@@ -30,10 +30,10 @@ function CardAdmin(props) {
         <li className={styles.card}>
             <div className={styles.questionAnswer}>
                 <PreCode question={question} />
-                <AnswerOptions listAnswers={listAnswers} rightAnswer={rightAnswer} buttonText={null} onClick={null} />
+                <AnswerOptions listanswers={listanswers} rightanswer={rightanswer} buttonText={null} onClick={null} />
             </div>
             <div className={styles.explanationButtons}>
-                <span className={styles.title}>Пояснение:</span>
+                <h3 className={styles.title}>Пояснение:</h3>
                 <div className={styles.explanation}>
                     {explanation}
                 </div>

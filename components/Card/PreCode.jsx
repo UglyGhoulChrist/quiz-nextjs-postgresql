@@ -3,7 +3,7 @@ import styles from '@/components/Card/PreCode.module.css'
 function PreCode({ question }) {
     return (
         <pre className={styles.question}>
-            <span className={styles.title}>JavaScript:</span>
+            <h3 className={styles.title}>JavaScript:</h3>
             <code className={`${styles.code} language-javascript`}>{question}</code>
         </pre>
     )

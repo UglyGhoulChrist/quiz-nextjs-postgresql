@@ -40,16 +40,15 @@
     padding: 0.5rem;
 }
 
-.explanation {
-    padding: 0.5rem;
-    font-size: 0.75rem;
-    text-align: justify;
+@media (min-width: 425px) {
+    .title {
+        font-size: 1.25rem;
+    }
 }
 
-@media (min-width: 425px) {
-    .explanation {
-        font-size: 1rem;
-    }
+.explanation {
+    padding: 0.5rem;
+    text-align: justify;
 }
 
 .buttons {

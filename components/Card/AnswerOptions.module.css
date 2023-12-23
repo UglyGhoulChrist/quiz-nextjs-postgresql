@@ -6,7 +6,6 @@
     flex-direction: column;
     gap: 0.5rem;
     font-family: monospace;
-    font-size: .75rem;
 }
 
 .answers button {
@@ -25,6 +24,12 @@
     background-color: #f1f1ff;
 }
 
+@media (min-width: 425px) {
+    .title {
+        font-size: 1.25rem;
+    }
+}
+
 .answer {
     padding: 0 0.5rem;
 }
@@ -32,7 +37,6 @@
 .answer:last-child {
     margin-bottom: 0.5rem;
 }
-
 
 .answer_right {
     font-weight: 700;
