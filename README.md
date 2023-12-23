@@ -1,4 +1,4 @@
-# QUIZ по JavaScript 'Что будет выведено в консоль?'
+# QUIZ по JavaScript 'Что будет выведено в консоль?' v1.0.0
 
 ## [Проект на платформе Vercel](https://quiz-nextjs-postgresql.vercel.app/)
 
