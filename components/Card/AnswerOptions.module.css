@@ -9,7 +9,7 @@
 }
 
 .answers button {
-    margin: auto 0 0.5rem 0.5rem;
+    margin: auto 0.5rem 0.5rem 0.5rem;
 }
 
 @media (min-width: 425px) {
